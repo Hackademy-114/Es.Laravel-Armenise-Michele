@@ -18,7 +18,7 @@
     </button>
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-
+        
         <li class="nav-item">
           <a class="nav-link active" aria-current="page" href="{{route('home')}}">Home</a>
         </li>
@@ -29,21 +29,43 @@
         <li class="nav-item">
           <a class="nav-link" href="{{route('film')}}">Film</a>
         </li>
-
+        
         <li class="nav-item">
           <a class="nav-link disabled" aria-disabled="true">Disabled</a>
         </li>
       </ul>
+      <form class="d-flex" role="search">
+        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+        <button class="btn btn-outline-success" type="submit">Search</button>
+      </form>
     </div>
   </div>
 </nav>
 <div class="container-fluid bg-danger">
     <div class="row justify-content-center">
         <div class="col-12">
-            <h1 class="text-center display-1"> home </h1>
+            <h1 class="text-center display-1"> film </h1>
         </div>
     </div>
 </div>
+<div class="container mt-3">
+    <div class="row justify-content-center">
+        @foreach ($films as $film)
+            <div class="col-12 col-md-6 d-flex justify-content-center">
+             <div class="card" style="width: 18rem;">
+             <img src="{{$film['img']}}" class="card-img-top" alt="...">
+             <div class="card-body">
+             <h5 class="card-title">{{$film['title']}}</h5>
+             <p class="card-text">{{$film['descrizione']}}</p>
+             <a href="#" class="btn btn-primary">Go somewhere</a>
+             </div>
+             </div> 
+            </div>
+        @endforeach
+    </div>
+</div>
+
+    
 
 
 

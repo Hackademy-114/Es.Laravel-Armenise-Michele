@@ -10,7 +10,7 @@ use Illuminate\Support\Facades\Route;
 | Here is where you can register web routes for your application. These
 | routes are loaded by the RouteServiceProvider and all of them will
 | be assigned to the "web" middleware group. Make something great!
-|
+| 
 */
 
 Route::get('/', function () {
@@ -39,3 +39,47 @@ Route::get('/team', function(){
     ];
     return view('team', ['mister'=>$mister , 'players'=>$players]);
 });
+
+
+
+
+
+
+
+
+Route::get('/' , function(){
+    return view('welcome');
+})->name('home');
+
+Route::get('/music', function(){
+    $musics = [
+        [
+            'title' => 'DVLA',
+            'descrizione' => 'album rap',
+            'img' => '/img/DVLA.jpg'
+        ],
+        [
+            'title' => 'after hours',
+            'descrizione' => 'album pop',
+            'img' => '/img/afterhours.jpg'
+        ]
+    ];
+    return view('music' , ['musics'=>$musics]);
+})->name('music');
+
+
+Route::get('/film', function(){
+    $films = [
+        [
+            'title' => 'è stata la mano di dio',
+            'descrizione' => 'film italiano',
+            'img' => '/img/filmscorsese.jpg'
+        ],
+        [
+            'title' => 'the irish man',
+            'descrizione' => 'film americano',
+            'img' => '/img/filmsorrentino.jpg'
+        ]
+    ];
+    return view('film' , ['films'=>$films]);
+})->name('film');
